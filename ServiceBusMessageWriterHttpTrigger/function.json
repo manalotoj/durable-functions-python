@@ -21,7 +21,7 @@
       "direction": "out",
       "connection": "AzureServiceBusConnectionString",
       "name": "msg",
-      "queueName": "case"
+      "queueName": "%QueueName%"
     }
   ]
 }
