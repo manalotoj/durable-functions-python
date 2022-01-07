@@ -4,7 +4,8 @@
     {
       "name": "context",
       "type": "orchestrationTrigger",
-      "direction": "in"
+      "direction": "in",
+      "queueName": "%QueueName%"
     }
   ]
 }

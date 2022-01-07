@@ -18,6 +18,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     logging.info(f"orchestrator input data: {rawInput}")
 
     try:
+        case_id = get_case_id(rawInput)        
         loInput = yield context.call_activity('PrepareData', rawInput)
         output = yield context.call_activity('Optimize', loInput)
         yield context.call_activity('PersistOutput', output)
@@ -28,3 +29,8 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     except Exception as _:
             return "something bad happened"
 main = df.Orchestrator.create(orchestrator_function)
+
+def get_case_id(json_string):
+    json_object = json.loads(json_string)
+    case_id = json_object['caseId']
+    return case_id

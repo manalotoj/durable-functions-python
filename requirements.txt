@@ -4,3 +4,5 @@
 
 azure-functions
 azure-functions-durable
+opencensus-extension-azure-functions
+opencensus-ext-requests
